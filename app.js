@@ -26,17 +26,18 @@ app.post("/",function(req,res){
     ]
   }
   const JSONdata=JSON.stringify(data);
-  const url="https://us17.api.mailchimp.com/3.0/lists/c9101133f86691";
+  const url="https://us17.api.mailchimp.com/3.0/lists/c910f86691";
   const options={
     method:"POST",
-    auth:"Lakshmi1:f2acf7ee978b5abc1e3e53fe2766966800241100862f-us17"
+    auth:"Lakshmi1:f2acf7ee978b5abc1e3e53fe2766960f-us17"
   }
   const request=https.request(url,options,function(response){
+  //  console.log(response.statusCode);
     if(response.statusCode===200){
-      res.sendFile(__dirname+"/failure.html");
+      res.sendFile(__dirname+"/success.html");
   }
   else{
-      res.sendFile(__dirname+"/success.html");
+      res.sendFile(__dirname+"/failure.html");
   }
 response.on("data",function(resData){
 })
@@ -46,6 +47,6 @@ request.end();
 
 })
 
-app.listen(process.env.PORT||3000,function(){
+app.listen(3000,function(){
   console.log("Server is running at "+process.env.PORT);
 })
