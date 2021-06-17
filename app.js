@@ -32,7 +32,7 @@ app.post("/",function(req,res){
     auth:"Lakshmi1:f2acf7ee978b5abc1e3e53fe2766960f-us17"
   }
   const request=https.request(url,options,function(response){
-  //  console.log(response.statusCode);
+  //h  console.log(response.statusCode);
     if(response.statusCode===200){
       res.sendFile(__dirname+"/success.html");
   }
@@ -47,6 +47,6 @@ request.end();
 
 })
 
-app.listen(3000,function(){
+app.listen(process.env.PORT||3000,function(){
   console.log("Server is running at "+process.env.PORT);
 })
